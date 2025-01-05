@@ -1,16 +1,43 @@
 @import-normalize;
 
 :root {
+  --primary: 0, 6%, 10%;
+  --background: 0, 0%, 96%;
+
+  --border: 216, 12%, 84%;
+  --focus: 239, 84%, 67%;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: hsl(var(--primary));
+  background-color: hsl(var(--background));
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: 0, 0%, 90%;
+    --background: 0, 1%, 10%;
+
+    --border: 216, 12%, 24%;
+    --focus: 239, 84%, 57%;
+
+    color: hsl(var(--primary));
+    background-color: hsl(var(--background));
+
+    
+  }
+  
+}
+
+* {
+  box-sizing: border-box;
 }

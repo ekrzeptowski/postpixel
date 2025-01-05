@@ -1,0 +1,21 @@
+.input {
+    background: hsl(var(--background));
+    color: hsl(var(--primary));
+    border: 1px solid hsl(var(--border));
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 10px;
+
+    &:focus {
+        outline: none;
+        border-color: hsl(var(--focus));
+        box-shadow: 0 0 0 2px hsl(var(--focus), 0.2);
+    }
+
+    &::placeholder {
+        color: hsl(var(--primary));
+        opacity: 0.5;
+    }
+}
