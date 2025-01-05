@@ -3,6 +3,7 @@ import { supabase } from "../utils/supabase";
 
 import { Input } from "../components/Input";
 import { Button } from "../components/Button";
+import { TextLink } from "../components/TextLink";
 
 import styles from "./Login.module.scss";
 
@@ -54,6 +55,9 @@ export const LoginPage = () => {
           Login
         </Button>
       </form>
+      <p>
+        Don't have an account? <TextLink to="/register">Sign up</TextLink>
+      </p>
     </div>
   );
 };

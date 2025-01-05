@@ -1,0 +1,15 @@
+.textLink {
+  color: color-mix(in srgb, hsl(var(--focus)) 80%, black 20%);
+
+  &:hover {
+    background-color: hsla(var(--focus), 0.1);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    color: color-mix(in srgb, hsl(var(--focus)) 70%, white 30%);
+
+    &:hover {
+      background-color: hsla(var(--focus), 0.2);
+    }
+  }
+}
