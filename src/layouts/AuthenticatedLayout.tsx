@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router";
-
+import { Navbar } from "../components/Navbar";
 import { supabase } from "../utils/supabase";
 
 export const AuthenticatedLayout = () => {
@@ -54,5 +54,12 @@ export const AuthenticatedLayout = () => {
     return <div>Loading...</div>;
   }
 
-  return <Outlet />;
+  return (
+    <>
+      <Navbar />
+      <main className="container">
+        <Outlet />
+      </main>
+    </>
+  );
 };
