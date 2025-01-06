@@ -1,0 +1,42 @@
+.albumSelect {
+  position: relative;
+
+  input {
+    cursor: pointer;
+    &:focus {
+      cursor: text;
+    }
+  }
+}
+
+.albumOptions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: hsl(var(--background));
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 5;
+
+  > .optionItem {
+    padding: 8px 12px;
+    cursor: pointer;
+
+    &:hover {
+      background: hsla(var(--focus), 0.15);
+    }
+  }
+
+  > .info {
+    opacity: 75%;
+    cursor: not-allowed;
+
+    &:hover {
+      background: none;
+    }
+  }
+}

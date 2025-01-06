@@ -1,0 +1,13 @@
+.formContainer {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.actionButton {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
