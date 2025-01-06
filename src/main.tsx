@@ -10,6 +10,7 @@ import { AuthenticatedLayout } from "./layouts/AuthenticatedLayout.tsx";
 import App from "./App.tsx";
 import { LoginPage } from "./pages/Login.tsx";
 import { RegisterPage } from "./pages/Register.tsx";
+import { CreatePage } from "./pages/Create.tsx";
 
 import "./index.scss";
 
@@ -24,7 +25,8 @@ createRoot(document.getElementById("root")!).render(
           </Route>
           <Route element={<AuthenticatedLayout />}>
             <Route index path="/" element={<App />} />
-            {/* <Route path="/profile" element={<ProfilePage />} /> */}
+            <Route path="/create" element={<CreatePage />} />
+            {/* <Route path="/profile/me" element={<App />} /> */}
           </Route>
         </Routes>
       </BrowserRouter>

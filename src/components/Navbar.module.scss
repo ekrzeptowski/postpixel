@@ -65,7 +65,7 @@
   font-weight: 600;
   font-size: 1.125rem;
   padding: 0.5rem;
-  border-radius: 0.25rem;
+  border-radius: var(--border-radius);
   transition: all 0.2s ease;
 
   &:hover {
@@ -84,8 +84,9 @@
   border: none;
   background: transparent;
   cursor: pointer;
-  border-radius: 0.25rem;
+  border-radius: var(--border-radius);
   transition: background-color 0.2s ease;
+  justify-content: center;
 
   &:hover {
     background-color: hsla(var(--focus), 0.1);
