@@ -11,7 +11,7 @@ import {
   useContext,
   type ReactNode,
 } from "react";
-import { supabase } from "./utils/supabase";
+import { supabase } from "../utils/supabase";
 
 type AuthContextType = {
   user: User | null;

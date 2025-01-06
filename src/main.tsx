@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router";
 import { NuqsAdapter } from "nuqs/adapters/react-router/v7";
 
-import AuthProvider from "./auth.tsx";
+import AuthProvider from "./hooks/auth.tsx";
 
 import { AuthLayout } from "./layouts/AuthLayout.tsx";
 import { AuthenticatedLayout } from "./layouts/AuthenticatedLayout.tsx";
