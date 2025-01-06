@@ -1,6 +1,8 @@
 import { parseAsString, useQueryStates } from "nuqs";
+import { useState } from "react";
 
 import { usePhotos } from "../hooks/usePhotos";
+import { useAuth } from "../hooks/auth";
 import { supabase } from "../utils/supabase";
 
 import { Input } from "../components/Input";
@@ -24,7 +26,22 @@ export const FeedPage = () => {
       },
     }
   );
-  const { photos, loading, error, hasMore, loadMore } = usePhotos(filters);
+  const { user } = useAuth();
+  const { photos, loading, error, hasMore, loadMore, deletePhoto } =
+    usePhotos(filters);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
+
+  const handleDelete = async (
+    photoId: string,
+    userId: string,
+    path: string
+  ) => {
+    const { success, error } = await deletePhoto(photoId, userId, path);
+    if (!success && error) {
+      alert("Failed to delete photo");
+    }
+    setDeletingId(null);
+  };
 
   const getPhotoUrl = (userId: string, path: string) => {
     const { data } = supabase.storage
@@ -105,12 +122,40 @@ export const FeedPage = () => {
                 {new Date(photo.created_at).toLocaleTimeString()}
               </p>
               <p className={styles.photoDescription}>{photo.description}</p>
+              <div className={styles.photoActions}>
+                {photo.user_id === user?.id && (
+                  <button
+                    className={styles.deleteButton}
+                    onClick={() => setDeletingId(photo.id)}
+                    aria-label="Delete photo"
+                  >
+                    🗑️ Delete
+                  </button>
+                )}
+              </div>
             </div>
+            {deletingId === photo.id && (
+              <>
+                <div className={styles.deleteOverlay} />
+                <div className={styles.deleteConfirm}>
+                  <p>Are you sure you want to delete this photo?</p>
+                  <div>
+                    <Button
+                      onClick={() =>
+                        handleDelete(photo.id, photo.user_id, photo.path)
+                      }
+                    >
+                      Delete
+                    </Button>
+                    <Button onClick={() => setDeletingId(null)}>Cancel</Button>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         ))}
       </div>
 
-      {/* Loading state and load more button */}
       {loading && <div className={styles.loading}>Loading...</div>}
       {!loading && hasMore && (
         <Button
