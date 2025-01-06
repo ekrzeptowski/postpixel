@@ -4,9 +4,9 @@
   margin-bottom: 20px;
   flex-direction: column;
 
-    @media screen and (min-width: 640px) {
-        flex-direction: row;
-    }
+  @media screen and (min-width: 640px) {
+    flex-direction: row;
+  }
 }
 
 .error {
@@ -30,15 +30,14 @@
   @media screen and (prefers-color-scheme: dark) {
     background: color-mix(in srgb, hsl(var(--background)) 80%, black 20%);
   }
-}
 
-.photo img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1 / 1;
-  object-fit: contain
+  img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+  }
 }
-
 .photoDetails {
   padding: 10px;
 
@@ -62,5 +61,59 @@
 }
 
 .loading {
-    text-align: center;
+  text-align: center;
+}
+
+.photoActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.deleteButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  transition: background-color 0.2s ease;
+  font-weight: 500;
+
+  &:hover {
+    background-color: hsla(var(--primary), 0.1);
+  }
+}
+
+.deleteOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: color-mix(in srgb, hsl(var(--background)) 30%, black 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  opacity: 50%;
+}
+
+.deleteConfirm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: hsl(var(--background));
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 2;
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  div {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
 }

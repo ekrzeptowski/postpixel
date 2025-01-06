@@ -58,6 +58,25 @@ export const usePhotos = (filters: PhotoFilters) => {
     [filters.userId, filters.albumId, page]
   );
 
+  const deletePhoto = async (photoId: string, userId: string, path: string) => {
+    try {
+      await supabase.storage.from("photos").remove([`${userId}/${path}`]);
+
+      const { error } = await supabase
+        .from("photos")
+        .delete()
+        .eq("id", photoId);
+
+      if (error) throw error;
+
+      setPhotos((prev) => prev.filter((p) => p.id !== photoId));
+      return { success: true };
+    } catch (error) {
+      console.error("Error deleting photo:", error);
+      return { success: false, error };
+    }
+  };
+
   const loadMore = () => {
     setPage((prev) => prev + 1);
   };
@@ -73,8 +92,8 @@ export const usePhotos = (filters: PhotoFilters) => {
     if (page > 0) {
       fetchPhotos(true);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
-  return { photos, loading, error, hasMore, loadMore };
+  return { photos, loading, error, hasMore, loadMore, deletePhoto };
 };
