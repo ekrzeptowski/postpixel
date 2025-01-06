@@ -6,7 +6,7 @@ import { Button } from "../components/Button";
 import { Spinner } from "../components/Spinner";
 import { AlbumSelect } from "../components/AlbumSelect/AlbumSelect";
 import { ImageUpload } from "../components/ImageUpload/ImageUpload";
-import { useAuth } from "../auth";
+import { useAuth } from "../hooks/auth";
 import { generateRandomFileName } from "../utils/random";
 
 import styles from "./Create.module.scss";

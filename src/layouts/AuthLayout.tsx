@@ -1,6 +1,6 @@
 import { Outlet, useNavigate } from "react-router";
 
-import { useAuth } from "../auth";
+import { useAuth } from "../hooks/auth";
 
 export const AuthLayout = () => {
   const auth = useAuth();
