@@ -1,0 +1,33 @@
+.deleteOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: color-mix(in srgb, hsl(var(--background)) 30%, black 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  opacity: 50%;
+}
+
+.deleteConfirm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: hsl(var(--background));
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 2;
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  div {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+}
