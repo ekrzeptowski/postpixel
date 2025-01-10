@@ -33,8 +33,16 @@ export const PhotoCard = ({
 
   return (
     <div className={styles.photo}>
-      <a href={getPhotoUrl(user_id, path)} target="_blank" title="View full photo">
-        <img src={getPhotoUrl(user_id, path)} alt={description} className={styles.photoImage} />
+      <a
+        href={getPhotoUrl(user_id, path)}
+        target="_blank"
+        title="View full photo"
+      >
+        <img
+          src={getPhotoUrl(user_id, path)}
+          alt={description}
+          className={styles.photoImage}
+        />
       </a>
       <div className={styles.photoDetails}>
         <div className={styles.photoLinks}>
@@ -53,6 +61,9 @@ export const PhotoCard = ({
         </p>
         <p className={styles.photoDescription}>{description}</p>
         <div className={styles.photoActions}>
+          <Link className={styles.actionButton} to={`/comments/${id}`}>
+            💬 Comments
+          </Link>
           {user_id === currentUserId && (
             <button
               className={styles.actionButton}
