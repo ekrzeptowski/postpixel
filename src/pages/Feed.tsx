@@ -4,6 +4,7 @@ import { useAuth } from "../hooks/auth";
 import { Input } from "../components/Input";
 import { Button } from "../components/Button";
 import { PhotoCard } from "../components/PhotoCard";
+import { Spinner } from "../components/Spinner";
 import styles from "./Feed.module.scss";
 
 export const FeedPage = () => {
@@ -64,7 +65,7 @@ export const FeedPage = () => {
         ))}
       </div>
 
-      {loading && <div className={styles.loading}>Loading...</div>}
+      {loading && <Spinner className={styles.loading} />}
       {!loading && hasMore && (
         <Button
           onClick={loadMore}
