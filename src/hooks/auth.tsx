@@ -12,6 +12,7 @@ import {
   type ReactNode,
 } from "react";
 import { supabase } from "../utils/supabase";
+import { Spinner } from "../components/Spinner";
 
 type AuthContextType = {
   user: User | null;
@@ -87,7 +88,7 @@ const AuthProvider = ({ children }: { children?: ReactNode }) => {
 
   return (
     <AuthContext.Provider value={{ user, signIn, signOut }}>
-      {!loading ? children : <div>Loading...</div>}
+      {!loading ? children : <Spinner />}
     </AuthContext.Provider>
   );
 };

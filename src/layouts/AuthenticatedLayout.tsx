@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router";
 import { Navbar } from "../components/Navbar";
 import { supabase } from "../utils/supabase";
+import { Spinner } from "../components/Spinner";
+
+import styles from "./AuthenticatedLayout.module.scss";
 
 export const AuthenticatedLayout = () => {
   const navigate = useNavigate();
@@ -51,7 +54,7 @@ export const AuthenticatedLayout = () => {
   }, [navigate]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Spinner className={styles.spinner} />;
   }
 
   return (
