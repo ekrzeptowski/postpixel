@@ -13,6 +13,7 @@ import { RegisterPage } from "./pages/Register.tsx";
 import { CreatePage } from "./pages/Create.tsx";
 import { FeedPage } from "./pages/Feed.tsx";
 import { CommentPage } from "./pages/Comment.tsx";
+import { SearchPage } from "./pages/Search.tsx";
 
 import "./index.scss";
 
@@ -30,6 +31,7 @@ createRoot(document.getElementById("root")!).render(
               <Route index path="/" element={<FeedPage />} />
               <Route path="/create" element={<CreatePage />} />
               <Route path="/comments/:photoId" element={<CommentPage />} />
+              <Route path="/search" element={<SearchPage />} />
               {/* <Route path="/profile/me" element={<App />} /> */}
             </Route>
           </Routes>
