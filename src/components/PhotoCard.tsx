@@ -46,7 +46,7 @@ export const PhotoCard = ({
       </a>
       <div className={styles.photoDetails}>
         <div className={styles.photoLinks}>
-          <TextLink to={{ pathname: `/`, search: `?profile=${user_id}` }}>
+          <TextLink to={{ pathname: `/profile/${user_id}` }}>
             @{display_name}
           </TextLink>
           {album_id && (

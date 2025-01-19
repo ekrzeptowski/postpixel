@@ -45,7 +45,7 @@ export const Navbar = () => {
           <Link to="/create" className={styles.navLink}>
             Create Post
           </Link>
-          <Link to="/profile/me" className={styles.navLink}>
+          <Link to="/profile" className={styles.navLink}>
             My profile
           </Link>
           <Button onClick={handleSignOut} className={styles.authButton}>
