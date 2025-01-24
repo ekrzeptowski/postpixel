@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { HashRouter, Route, Routes } from "react-router";
 import { NuqsAdapter } from "nuqs/adapters/react-router/v7";
 
 import AuthProvider from "./hooks/auth.tsx";
@@ -22,7 +22,7 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <NuqsAdapter>
       <AuthProvider>
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route element={<AuthLayout />}>
               <Route path="/login" element={<LoginPage />} />
@@ -37,7 +37,7 @@ createRoot(document.getElementById("root")!).render(
               <Route path="/profile/:profileId" element={<ProfilePage />} />
             </Route>
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </AuthProvider>
     </NuqsAdapter>
   </StrictMode>
