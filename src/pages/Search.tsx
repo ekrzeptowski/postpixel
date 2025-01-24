@@ -167,7 +167,7 @@ export const SearchPage = () => {
                 key={`${result.type}-${result.id}`}
                 to={
                   result.type === "user"
-                    ? `/?profile=${result.id}`
+                    ? `/profile/${result.id}`
                     : `/?album=${result.id}`
                 }
                 className={styles.resultItem}
