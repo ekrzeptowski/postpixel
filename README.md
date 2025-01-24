@@ -12,3 +12,7 @@ This app is an assignment for the course "Frontend Frameworks" at the College of
 - Supabase
 - TypeScript
 - Vite
+
+## Database
+
+Use included `db.sql` file to create the database structure.
