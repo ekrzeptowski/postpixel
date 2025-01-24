@@ -1,7 +1,6 @@
 import { parseAsString, useQueryStates } from "nuqs";
 import { usePhotos } from "../hooks/usePhotos";
 import { useAuth } from "../hooks/auth";
-import { Input } from "../components/Input";
 import { Button } from "../components/Button";
 import { PhotoCard } from "../components/PhotoCard";
 import { Spinner } from "../components/Spinner";
@@ -31,24 +30,13 @@ export const FeedPage = () => {
     <div>
       <h1>Photo Feed</h1>
 
-      <div className={styles.filtersContainer}>
-        <Input
-          type="text"
-          placeholder="Filter by user ID..."
-          value={filters.userId || ""}
-          onChange={(e) =>
-            setFilters((prev) => ({ ...prev, userId: e.target.value || "" }))
-          }
-        />
-        <Input
-          type="text"
-          placeholder="Filter by album ID..."
-          value={filters.albumId || ""}
-          onChange={(e) =>
-            setFilters((prev) => ({ ...prev, albumId: e.target.value || "" }))
-          }
-        />
-      </div>
+      {filters.albumId && (
+        <div className={styles.filtersContainer}>
+          Currently showing photos for
+          {` album ID ${filters.albumId}`}
+          <Button onClick={() => setFilters({ albumId: "" })}>Clear</Button>
+        </div>
+      )}
 
       {error && <div className={styles.error}>Error: {error}</div>}
 
